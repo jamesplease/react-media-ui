@@ -20,7 +20,7 @@ This library includes a CSS file that must be imported one time. Typically you'l
 this with the rest of the CSS in your project.
 
 ```js
-import 'react-media-ui/media-ui.css';
+import 'react-media-ui/style.css';
 ```
 
 ## API Reference
@@ -41,7 +41,7 @@ It also accepts a few additional props, all of which are optional:
 
 ```jsx
 // This CSS file must be imported just a single time
-import 'react-media-ui/media-ui.css';
+import 'react-media-ui/style.css';
 import { Image } from 'react-media-ui';
 
 export default function App() {
@@ -63,7 +63,7 @@ The `<Video>` component accepts all of the same props as `<video/>`. It also acc
 
 ```jsx
 // This CSS file must be imported just a single time
-import 'react-media-ui/media-ui.css';
+import 'react-media-ui/style.css';
 import { Video } from 'react-media-ui';
 
 export default function App() {
@@ -86,7 +86,7 @@ export default function App() {
 Did you remember to import the CSS file?
 
 ```js
-import 'react-media-ui/media-ui.css';
+import 'react-media-ui/style.css';
 ```
 
 ### Animations aren't working
@@ -94,7 +94,7 @@ import 'react-media-ui/media-ui.css';
 It might be worth doing a quick check that the CSS file was imported.
 
 ```js
-import 'react-media-ui/media-ui.css';
+import 'react-media-ui/style.css';
 ```
 
 ### I'm still having issues

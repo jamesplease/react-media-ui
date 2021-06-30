@@ -7,7 +7,7 @@
   "files": [
     "dist",
     "src",
-    "media-ui.css"
+    "style.css"
   ],
   "engines": {
     "node": ">=10"
@@ -15,7 +15,9 @@
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build && npm run css",
-    "css": "cat src/image.css src/video.css > media-ui.css",
+    "delete-css": "rimraf ./style.css",
+    "create-css": "cat src/image.css src/video.css > style.css",
+    "css": "npm run delete-css && npm run create-css",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
     "prepublishOnly": "npm run build",
@@ -44,6 +46,7 @@
     "@types/react-dom": "^17.0.8",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "rimraf": "^2.7.1",
     "size-limit": "^5.0.1",
     "tsdx": "^0.14.1",
     "tslib": "^2.3.0",
