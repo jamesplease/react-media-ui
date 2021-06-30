@@ -22,7 +22,7 @@
   transition: opacity 350ms ease-out;
 }
 
-.mui-video_video-active.mui-video_video-isShowingVideo {
+.mui-video_video-active.mui-video_video-showing {
   opacity: 1;
 }
 
