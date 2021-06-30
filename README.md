@@ -23,6 +23,15 @@ this with the rest of the CSS in your project.
 import 'react-media-ui/style.css';
 ```
 
+## Table of Contents
+
+- [**API Reference**](#api-reference)
+  - [\<Image/\>](#image-)
+  - [\<Video/\>](#video-)
+- [**Guides**](#guides)
+  - [Video Element Performance](#video-element-performance)
+- [**Troubleshooting**](#troubleshooting)
+
 ## API Reference
 
 ### `<Image />`
@@ -35,8 +44,8 @@ It also accepts a few additional props, all of which are optional:
 
 | Prop             | Type   | Default value | Description                                                                                                                                            |
 | ---------------- | ------ | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `threshold`      | number | `0.35`        | If the image loads faster than this value, then it will not fade in.                                                                                   |
-| `duration`       | number | `0.25`        | The duration of the fade animation.                                                                                                                    |
+| `threshold`      | number | `0.35`        | If the image loads faster than this value, then it will not fade in. Specified in units of seconds.                                                    |
+| `duration`       | number | `0.25`        | The duration of the fade animation in seconds.                                                                                                         |
 | `timingFunction` | string | `'ease-out'`  | The timing function for the fade animation. [View all valid values here](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function). |
 
 ```jsx
@@ -78,6 +87,18 @@ export default function App() {
   );
 }
 ```
+
+## Guides
+
+### Video Element Performance
+
+Some apps may require swapping out `<Video/>` elements as a user navigates. If they navigate too fast, then the mounting and unmounting can occur rapidly. This
+can be a problem because mounting and unmounting video elements too rapidly can cause sluggish performance.
+
+To avoid this problem, use the `mountVideo` prop as follows:
+
+Whenever the user navigates, set `mountVideo` to `false`. This makes it so that just the poster image mounts. Then, if the user doesn't navigate again after, say, 400ms, you
+can set `mountVideo` to `true`. This technique ensures that even users who are navigating very quickly will not cause rapid mounting and unmounting of video elements.
 
 ## Troubleshooting
 
