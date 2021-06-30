@@ -1,5 +1,7 @@
 # React Media UI
 
+[![npm version](https://img.shields.io/npm/v/react-media-ui.svg)](https://www.npmjs.com/package/react-media-ui)
+
 Two React components: one for images, one for video.
 
 ## Installation
