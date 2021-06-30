@@ -42,7 +42,7 @@ Renders an image. If the image takes a moment to load, then it will fade in once
 
 The `Image` component accepts all of the same props as `<img/>`.
 
-It also accepts a few additional props, all of which are optional:
+It also accepts a few additional props that most people won't need to use. All of these additional props are optional:
 
 | Prop             | Type   | Default value | Description                                                                                                                                            |
 | ---------------- | ------ | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
