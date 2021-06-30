@@ -1,0 +1,31 @@
+.mui-video {
+  position: relative;
+}
+
+.mui-video_video,
+.mui-video_img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.mui-video_img {
+  background: black;
+  border: 0;
+  outline: none;
+}
+
+.mui-video_video {
+  opacity: 0;
+  will-change: opacity;
+  transition: opacity 350ms ease-out;
+}
+
+.mui-video_video-active.mui-video_video-isShowingVideo {
+  opacity: 1;
+}
+
+.mui-video_video-ended {
+  opacity: 0;
+}

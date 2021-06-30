@@ -1,0 +1,15 @@
+.mui-image-fade img {
+  animation-duration: var(--animation-duration);
+  animation-timing-function: var(--animation-timing-function);
+  animation-name: mui-fadein;
+}
+
+@keyframes mui-fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
