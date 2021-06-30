@@ -28,7 +28,7 @@
   "peerDependencies": {
     "react": ">=16"
   },
-  "author": "James Smith",
+  "author": "James Please",
   "module": "dist/react-media-ui.esm.js",
   "size-limit": [
     {
