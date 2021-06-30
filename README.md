@@ -62,7 +62,8 @@ export default function App() {
 
 ### `<Video />`
 
-Renders a video with an optional poster image, which displays until the video has loaded.
+Renders a video with an optional poster image, which displays until the video has loaded. After the video has ended the
+poster image will be fade in again.
 
 The `<Video>` component accepts all of the same props as `<video/>`. It also accepts a few more, all of which are optional:
 
