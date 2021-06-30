@@ -137,7 +137,7 @@ const Video = forwardRef(
             muted={muted}
             ref={internalVideoRef}
             src={src}
-            className={`video_video ${
+            className={`mui-video_video ${
               useActiveClass ? 'mui-video_video-active' : ''
             } ${videoState.isShowingVideo ? 'mui-video_video-showing' : ''} ${
               videoState.started ? 'mui-video_video-started' : ''
