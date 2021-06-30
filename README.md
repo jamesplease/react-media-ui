@@ -95,13 +95,13 @@ export default function App() {
 
 ### Video Element Performance
 
-Some apps may require swapping out `<Video/>` elements as a user navigates. If they navigate too fast, then the mounting and unmounting can occur rapidly. This
-can be a problem because mounting and unmounting video elements too rapidly can cause sluggish performance.
+Some apps may require swapping out `<Video/>` elements as a user navigates. If they navigate quickly, then the mounting and unmounting of the underlying video element can
+occur rapidly. This can be a problem because mounting and unmounting video elements too rapidly can cause sluggish performance.
 
-To avoid this problem, use the `mountVideo` prop as follows:
+To avoid this problem, you can use the `mountVideo` prop.
 
-Whenever the user navigates, set `mountVideo` to `false`. This makes it so that just the poster image mounts. Then, if the user doesn't navigate again after, say, 400ms, you
-can set `mountVideo` to `true`. This technique ensures that even users who are navigating very quickly will not cause rapid mounting and unmounting of video elements.
+When the user navigates, set `mountVideo` to `false`. This makes it so that just the poster image mounts. Then, if the user doesn't navigate again after, say, 400ms, set `mountVideo`
+back to `true`. This technique ensures that even users who are navigating very quickly will not cause rapid mounting and unmounting of video elements.
 
 ## Troubleshooting
 
