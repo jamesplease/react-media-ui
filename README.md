@@ -71,7 +71,7 @@ The `<Video>` component accepts all of the same props as `<video/>`. It also acc
 | Prop         | Type         | Default value | Description                                                                                             |
 | ------------ | ------------ | ------------- | ------------------------------------------------------------------------------------------------------- |
 | `poster`     | string       | `undefined`   | A URL of an image to display while the video loads.                                                     |
-| `mountVideo` | boolean      | `true`        | Pass `false` and the video will not be mounted. This can be useful for performance in certain contexts. |
+| `mountVideo` | boolean      | `true`        | Pass `false` and the video will not be mounted. This can be useful for performance [in certain contexts](#video-element-performance). |
 | `imgProps`   | `ImageProps` | `undefined`   | Props that are passed to the underlying `<Image/>` element that is used for the poster.                 |
 
 ```jsx
