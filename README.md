@@ -31,7 +31,7 @@ import 'react-media-ui/style.css';
   - [\<Image/\>](#image-)
   - [\<Video/\>](#video-)
 - [**Guides**](#guides)
-  - [Image Placeholder Color](#image-placeholder-color)
+  - [Image Placeholder](#image-placeholder)
   - [Video Element Performance](#video-element-performance)
 - [**Troubleshooting**](#troubleshooting)
 
@@ -94,15 +94,13 @@ export default function App() {
 
 ## Guides
 
-### Image Placeholder Color
+### Image Placeholder
 
-You may wish to display a color while the image loads. You can accomplish this using CSS.
+You may wish to display a placeholder color while the image loads. You can
+accomplish this using CSS.
 
 ```js
-<Image
-  className="my-image"
-  src="dog.jpg"
-  alt="A dog jumping." />
+<Image className="my-image" src="dog.jpg" alt="A dog jumping." />
 ```
 
 ```css
@@ -125,6 +123,10 @@ You may wish to display a color while the image loads. You can accomplish this u
   overflow: hidden;
 }
 ```
+
+A placeholder background image can be accomplished using this same strategy
+(see: [background-image on MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/background-image)), although
+you will want to be mindful of the image's file size.
 
 ### Video Element Performance
 
