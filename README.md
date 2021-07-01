@@ -6,7 +6,7 @@ Two React components: one for images, one for video.
 
 ## Motivation
 
-When images load slowly on the web, they will suddenly appear after they have loaded. Or, if
+When images load slowly on the web they will suddenly appear after they have loaded. Or, if
 the image is interlaced, it might load in slowly from top to bottom.
 
 Videos behave similarly, and although the built-in video element supports a poster (an
@@ -16,8 +16,6 @@ video has finished loading.
 This library provides a different behavior: the image component will fade in if it takes
 too long to download, while the video element will cross fade between the poster and the
 video.
-
-If you prefer this behavior then this library might be a good choice for you.
 
 ## Installation
 
