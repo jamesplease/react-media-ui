@@ -31,6 +31,7 @@ import 'react-media-ui/style.css';
   - [\<Image/\>](#image-)
   - [\<Video/\>](#video-)
 - [**Guides**](#guides)
+  - [Image Placeholder Color](#image-placeholder-color)
   - [Video Element Performance](#video-element-performance)
 - [**Troubleshooting**](#troubleshooting)
 
@@ -92,6 +93,38 @@ export default function App() {
 ```
 
 ## Guides
+
+### Image Placeholder Color
+
+You may wish to display a color while the image loads. You can accomplish this using CSS.
+
+```js
+<Image
+  className="my-image"
+  src="dog.jpg"
+  alt="A dog jumping." />
+```
+
+```css
+.my-image {
+  /*
+    Give it explicit dimensions so that it takes up space
+    even while the image is loading in
+  */
+  width: 120px;
+  aspect-ratio: 5/8;
+
+  /* Specify a background color */
+  background: #ccc;
+
+  /*
+    You can also round the corners, or do whatever else
+   you would like!
+  */
+  border-radius: 6px;
+  overflow: hidden;
+}
+```
 
 ### Video Element Performance
 
