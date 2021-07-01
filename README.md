@@ -100,7 +100,11 @@ You may wish to display a placeholder color while the image loads. You can
 accomplish this using CSS.
 
 ```js
-<Image className="my-image" src="dog.jpg" alt="A dog jumping." />
+<Image
+  className="my-image"
+  src="dog.jpg"
+  alt="A dog jumping."
+/>
 ```
 
 ```css
@@ -117,7 +121,7 @@ accomplish this using CSS.
 
   /*
     You can also round the corners, or do whatever else
-   you would like!
+    you would like!
   */
   border-radius: 6px;
   overflow: hidden;
