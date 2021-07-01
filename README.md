@@ -44,6 +44,7 @@ import 'react-media-ui/style.css';
   - [\<Image/\>](#image-)
   - [\<Video/\>](#video-)
 - [**Guides**](#guides)
+  - [Best Practices](#best-practices)
   - [Image Placeholder](#image-placeholder)
   - [Video Element Performance](#video-element-performance)
 - [**Troubleshooting**](#troubleshooting)
@@ -106,6 +107,24 @@ export default function App() {
 ```
 
 ## Guides
+
+### Best Practices
+
+Always style your images and videos to have fixed dimensions. That way, they don't
+cause the layout of the app to change as assets load in. Also, it allows you to use a
+placeholder for your images. (Read the following guide for more!)
+
+In older browsers, you can specify dimensions using `width` and `height`. In newer
+browsers, you can specify just one of these along with
+[`aspect-ratio`](https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio). You may
+prefer to use `aspect-ratio` in certain situations, such as 16/9 videos.
+
+```css
+.my-video {
+  width: 100vw;
+  aspect-ratio: 16/9;
+}
+```
 
 ### Image Placeholder
 
