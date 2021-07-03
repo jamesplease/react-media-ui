@@ -81,16 +81,23 @@ const Image = forwardRef(
 
       let img = new window.Image();
       img.src = src;
-      img.onload = () => {
-        if (srcRef.current === src) {
-          setFadeState(currentState => {
-            return {
-              ...currentState,
-              loaded: true,
-            };
-          });
-        }
-      };
+
+      img
+        .decode()
+        .then(() => {
+          if (srcRef.current === src) {
+            setFadeState(currentState => {
+              return {
+                ...currentState,
+                loaded: true,
+              };
+            });
+          }
+        })
+        .catch(() => {
+          // Intentionally blank. If the image errors, then the placeholder
+          // state persists.
+        });
 
       return () => {
         clearTimeout(timeout);
@@ -107,8 +114,7 @@ const Image = forwardRef(
           '--animation-duration': `${duration}s`,
           // @ts-ignore
           '--animation-timing-function': timingFunction,
-        }}
-      >
+        }}>
         {fadeState.loaded && <img ref={imgRef} src={src} {...props} />}
       </div>
     );
