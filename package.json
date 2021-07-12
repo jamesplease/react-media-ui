@@ -3,6 +3,7 @@
   "version": "0.0.6",
   "license": "MIT",
   "main": "dist/index.js",
+  "description": "Two React components: one for images, one for video.",
   "typings": "dist/index.d.ts",
   "files": [
     "dist",
