@@ -1,6 +1,6 @@
 {
   "name": "react-media-ui",
-  "version": "0.0.6",
+  "version": "0.0.7-beta.0",
   "license": "MIT",
   "main": "dist/index.js",
   "description": "Two React components: one for images, one for video.",
