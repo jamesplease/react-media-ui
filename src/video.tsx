@@ -3,8 +3,9 @@ import React, {
   useRef,
   useImperativeHandle,
   forwardRef,
+  useEffect,
 } from 'react';
-import { useCurrentRef, useOnChange, useMountTransition } from 'core-hooks';
+import useMountTransition from './use-mount-transition';
 import Image from './image';
 
 interface VideoProps extends React.MediaHTMLAttributes<HTMLVideoElement> {
@@ -40,9 +41,14 @@ const Video = forwardRef(
   ) => {
     const loadedOnce = useRef(false);
     const internalVideoRef = useRef<HTMLVideoElement | null>(null);
+    const isMountedRef = useRef(false);
 
     useImperativeHandle(ref, () => internalVideoRef.current);
-    const playOnMountRef = useCurrentRef(!pause);
+    const playOnMountRef = useRef(!pause);
+
+    useEffect(() => {
+      playOnMountRef.current = !pause;
+    }, [pause]);
 
     const [videoState, setVideoState] = useState({
       // `isShowingVideo` enables the behavior where the image fades back in
@@ -69,18 +75,22 @@ const Video = forwardRef(
       },
     });
 
-    // The video immediately mutes when the unmounting process begins
-    useOnChange(mountVideo, (currentMount, prevMount) => {
-      if (typeof prevMount === undefined) {
+    // The video is immediately paused when the unmounting process begins
+    useEffect(() => {
+      if (!isMountedRef.current) {
+        isMountedRef.current = true;
         return;
       }
 
-      if (!currentMount) {
+      if (!mountVideo) {
         pausePlayback();
       }
-    });
+    }, [mountVideo]);
 
-    const mountVideoRef = useCurrentRef(mountVideo);
+    const mountVideoRef = useRef(mountVideo);
+    useEffect(() => {
+      mountVideoRef.current = mountVideo;
+    }, [mountVideo]);
 
     function startPlayback() {
       if (
@@ -100,20 +110,20 @@ const Video = forwardRef(
       }
     }
 
-    useOnChange(pause, (pauseNow, prevPauseNow) => {
-      if (typeof prevPauseNow !== 'boolean') {
+    useEffect(() => {
+      if (!isMountedRef.current) {
         return;
       }
 
-      if (prevPauseNow && !pauseNow) {
-        startPlayback();
-      } else if (!prevPauseNow && pauseNow) {
+      if (pause) {
         pausePlayback();
+      } else {
+        startPlayback();
       }
-    });
+    }, [pause]);
 
-    useOnChange(muted, (isMuted, wasMuted) => {
-      if (wasMuted === undefined) {
+    useEffect(() => {
+      if (!isMountedRef.current) {
         return;
       }
 
@@ -121,12 +131,16 @@ const Video = forwardRef(
         return;
       }
 
-      if (isMuted) {
+      if (muted) {
         internalVideoRef.current.volume = 0;
       } else {
         internalVideoRef.current.volume = 1;
       }
-    });
+    }, [muted]);
+
+    useEffect(() => {
+      isMountedRef.current = true;
+    }, []);
 
     return (
       <div className={`${className} mui-video`}>

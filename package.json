@@ -52,8 +52,5 @@
     "tsdx": "^0.14.1",
     "tslib": "^2.3.0",
     "typescript": "^4.3.4"
-  },
-  "dependencies": {
-    "core-hooks": "^1.3.0-beta.0"
   }
 }
