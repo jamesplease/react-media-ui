@@ -14,6 +14,7 @@ interface VideoProps extends React.MediaHTMLAttributes<HTMLVideoElement> {
   pause?: boolean;
   mountVideo?: boolean;
   muted?: boolean;
+  delayPoster?: number;
   imgProps: React.ImgHTMLAttributes<HTMLImageElement>;
 }
 
@@ -33,6 +34,9 @@ const Video = forwardRef(
       mountVideo = true,
       // Pass true to mute the video
       muted = false,
+      // A duration, in ms, to delay the poster before showing it. Useful if you want
+      // to give the video a minute to start before showing the poster.
+      delayPoster = 0,
       // Additional props for the underlying <img/> element
       imgProps,
       ...props
@@ -60,6 +64,7 @@ const Video = forwardRef(
       playing: false,
       paused: true,
       ended: false,
+      showingPoster: delayPoster === 0,
     });
 
     // This ensures that the video always transitions out, even when
@@ -144,7 +149,12 @@ const Video = forwardRef(
 
     return (
       <div className={`${className} mui-video`}>
-        <Image {...imgProps} src={poster} className="mui-video_img" />
+        <Image
+          {...imgProps}
+          src={poster}
+          showImage={videoState.showingPoster}
+          className={'mui-video_img'}
+        />
         {shouldMount && (
           <video
             {...props}
@@ -199,6 +209,7 @@ const Video = forwardRef(
                 playing: false,
                 paused: true,
                 ended: true,
+                showingPoster: true,
               });
 
               if (props && typeof props.onEnded === 'function') {
